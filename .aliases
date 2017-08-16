@@ -1,5 +1,3 @@
 alias ll='ls -lhF --color=auto --group-directories-first'
 alias la='ls -lhAF --color=auto --group-directories-first'
 alias lt="ls -lhAF --color=auto --sort=time"
-
-alias gitlog="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
