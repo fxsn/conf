@@ -1,2 +1,2 @@
 set swapfile
-set dir=~/tmp
+set dir=~/.tmp
