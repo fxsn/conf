@@ -19,9 +19,7 @@ set novisualbell
 set number
 set noshowmode
 set nobackup
-set noswapfile
-set backupdir=~/.vim/backup//
-set dir=~/.vim/swp//
+set swapfile
 
 " Set the terminal's title
 set title
