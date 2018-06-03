@@ -16,6 +16,8 @@
         - htop
         - ranger
         - compton
+        - fontawesome-fonts
+        - xclip
 #    - name: Clone / Update dotfiles repo
 #      git:
 #        repo: 'https://github.com/fxsn/dotfiles'
@@ -27,6 +29,14 @@
       loop:
         - { path: '~/.bashrc', line: 'source ~/dotfiles/bash_alias' }
         - { path: '~/.bashrc', line: 'source ~/dotfiles/bash_config' }
+    - name: Create directories
+      file:
+        path: '{{ item.path }}'
+        state: directory
+        mode: 0755
+      loop:
+        - { path: '~/.config' }
+        - { path: '~/.config/i3' }
     - name: Link files
       file:
         src: '{{ item.src }}'
@@ -34,6 +44,7 @@
         owner: '{{ ansible_user_id }}'
         group: '{{ ansible_user_id }}'
         state: link
+        force: yes
       loop:
         - { src: '~/dotfiles/gitconfig', dest: '~/.gitconfig' }
         - { src: '~/dotfiles/vimrc', dest: '~/.vimrc' }
