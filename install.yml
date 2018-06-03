@@ -18,10 +18,6 @@
         - compton
         - fontawesome-fonts
         - xclip
-#    - name: Clone / Update dotfiles repo
-#      git:
-#        repo: 'https://github.com/fxsn/dotfiles'
-#        dest: '~/dotfiles'
     - name: Source config and aliases
       lineinfile:
         path: '{{ item.path }}'
