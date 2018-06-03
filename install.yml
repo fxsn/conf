@@ -19,6 +19,7 @@
         - fontawesome-fonts
         - xclip
         - pavucontrol
+        - xautolock
     - name: Source config and aliases
       lineinfile:
         path: '{{ item.path }}'

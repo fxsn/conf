@@ -35,6 +35,11 @@ bindsym $mod+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# lock screen with i3lock
+bindsym $mod+Shift+x exec i3lock -c000000
+# autotime lock
+exec_always xautolock -time 10 -locker "i3lock -c000000" &
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
