@@ -1,30 +1,42 @@
 ---
-- name: Install dotfiles
+- name: Install dotfiles and packages
   hosts: localhost
   tasks:
-    - name: Clone / Update dotfiles repo
-      git:
-        repo: 'https://github.com/fxsn/dotfiles'
-        dest: '~/dotfiles'
-    - name: Source aliases in .bashrc
+    - name: install packages
+      become: yes
+      package:
+        name: '{{ item }}'
+        state: installed
+      loop:
+        - libselinux-python
+        - git
+        - vim
+        - firefox
+        - i3lock
+        - htop
+        - ranger
+        - compton
+#    - name: Clone / Update dotfiles repo
+#      git:
+#        repo: 'https://github.com/fxsn/dotfiles'
+#        dest: '~/dotfiles'
+    - name: Source config and aliases
       lineinfile:
-        path: '~/.bashrc'
-        line: 'source ~/dotfiles/bash_alias'
-    - name: Source config in .bashrc
-      lineinfile:
-        path: '~/.bashrc'
-        line: 'source ~/dotfiles/bash_config'
-    - name: Link .vimrc
+        path: '{{ item.path }}'
+        line: '{{ item.line }}'
+      loop:
+        - { path: '~/.bashrc', line: 'source ~/dotfiles/bash_alias' }
+        - { path: '~/.bashrc', line: 'source ~/dotfiles/bash_config' }
+    - name: Link files
       file:
-        src: '~/dotfiles/vimrc'
-        dest: '~/.vimrc'
+        src: '{{ item.src }}'
+        dest: '{{ item.dest }}'
         owner: '{{ ansible_user_id }}'
         group: '{{ ansible_user_id }}'
         state: link
-    - name: Link .gitconfig
-      file:
-        src: '~/dotfiles/gitconfig'
-        dest: '~/.gitconfig'
-        owner: '{{ ansible_user_id }}'
-        group: '{{ ansible_user_id }}'
-        state: link
+      loop:
+        - { src: '~/dotfiles/gitconfig', dest: '~/.gitconfig' }
+        - { src: '~/dotfiles/vimrc', dest: '~/.vimrc' }
+        - { src: '~/dotfiles/Xresources', dest: '~/.Xresources' }
+        - { src: '~/dotfiles/config/compton.conf', dest: '~/.config/compton.conf' }
+        - { src: '~/dotfiles/config/i3/config', dest: '~/.config/i3/config' }
