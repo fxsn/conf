@@ -18,6 +18,7 @@
         - compton
         - fontawesome-fonts
         - xclip
+        - pavucontrol
     - name: Source config and aliases
       lineinfile:
         path: '{{ item.path }}'
