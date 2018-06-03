@@ -163,4 +163,4 @@ bar {
 }
 
 exec_always nitrogen --restore &
-exec_always --no-startup-id compton
+exec_always --no-startup-id compton --paint-on-overlay --unredir-if-possible --backend xr_glx_hybrid --vsync drm --glx-swap-method -1 --glx-no-stencil
