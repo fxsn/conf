@@ -51,5 +51,5 @@ sysdata {
 }
 
 time {
-    format = " %H:%M:%S %d.%m.%Y"
+    format = "%d.%m.%Y  %H:%M:%S"
 }
