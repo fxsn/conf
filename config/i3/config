@@ -174,8 +174,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 # finds out, if available)
 bar {
         status_command py3status
-        # status command py3status
+        # status command i3status
 }
 
 # exec_always nitrogen --restore &
-exec_always --no-startup-id compton --paint-on-overlay --unredir-if-possible --backend xr_glx_hybrid --vsync drm --glx-swap-method -1 --glx-no-stencil
+exec_always --no-startup-id compton --paint-on-overlay --unredir-if-possible --backend xr_glx_hybrid --vsync drm --glx-swap-method -1 --glx-no-stencil --xrender-sync --xrender-sync-fence
