@@ -1,0 +1,55 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+    colors = true
+    interval = 20
+}
+
+order += "online_status"
+order += "screenshot"
+order += "volume master"
+order += "battery_level"
+order += "diskdata"
+order += "sysdata"
+order += "time"
+
+screenshot {
+    save_path = "~/Pictures/screenshots/"
+    screenshot_command = "scrot"
+}
+
+volume master {
+    format = " %volume"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+    on_click 1 = "exec urxvt -e alsamixer"
+    on_click 4 = "exec amixer set Master 1%+; killall -s USR1 py3status"
+    on_click 5 = "exec amixer set Master 1%-; killall -s USR1 py3status"
+}
+
+battery_level {
+    blocks = ""
+    format = "{icon} {percent}% {time_remaining}"
+    hide_seconds = True
+    color_bad = "#f03e3e"
+    threshold_bad = 20
+}
+
+diskdata {
+    format = " {free} GB"
+}
+
+sysdata {
+    format = " {cpu_usage}%/{mem_used}/{mem_total} GB"
+}
+
+time {
+    format = " %H:%M:%S %d.%m.%Y"
+}
