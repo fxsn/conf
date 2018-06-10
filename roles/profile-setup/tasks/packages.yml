@@ -1,0 +1,24 @@
+- name: install packages
+  package:
+    name: '{{ item }}'
+    state: installed
+  loop:
+    - libselinux-python
+    - git
+    - vim
+    - firefox
+    - i3
+    - i3status
+    - feh
+    - dmenu
+    - xbacklight
+    - i3lock
+    - py3status
+    - htop
+    - ranger
+    - compton
+    - fontawesome-fonts
+    - xclip
+    - pavucontrol
+    - xautolock
+    - scrot
