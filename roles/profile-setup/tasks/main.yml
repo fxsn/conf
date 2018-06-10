@@ -49,7 +49,7 @@
     owner: '{{ ansible_user_id }}'
     group: '{{ ansible_user_id }}'
     state: link
-    force: yes
+    backup: yes
   loop:
     - { src: 'gitconfig', dest: '~/.gitconfig' }
     - { src: 'vimrc', dest: '~/.vimrc' }
