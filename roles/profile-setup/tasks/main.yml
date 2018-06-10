@@ -9,6 +9,9 @@
     - git
     - rsync
     - vim
+    - tmux
+    - screen
+    - conky
     - firefox
     - i3
     - i3status
