@@ -1,11 +1,23 @@
+!! font general preferences
+Xft.antialias:  1
+Xft.hinting:    1
+Xft.hintstyle:  hintfull
+Xft.lcdfilter:  lcddefault
+Xft.rgba:       rgb
+
+!! Other config
+urxvt*loginShell: true
+
 !! Appearance
-urxvt.scrollBar: false
-urxvt.font: xft:DejaVu Sans Mono:pixelsize=13
-urxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=13:weight=bold
+urxvt.scrollBar:   false
+urxvt.font:        xft:DejaVu Sans Mono:pixelsize=13
+urxvt.boldFont:    xft:DejaVu Sans Mono:pixelsize=13:weight=bold
 urxvt.letterSpace: -1
+urxvt*cursorBlink: false
 
 URxvt*background: #2C2C2C
 URxvt*foreground: #DCDCCC
+
 ! black
 URxvt.color0  : #3F3F3F
 URxvt.color8  : #709080
@@ -32,9 +44,9 @@ URxvt.color7  : #DCDCCC
 URxvt.color15 : #FFFFFF
 
 !! Larger history limit
-urxvt.saveLines: 1000000
+urxvt.saveLines: 65535
 
 !! Clickable urls
 URxvt.perl-ext-common: default,matcher
-URxvt.url-launcher: /usr/bin/firefox
-URxvt.matcher.button: 1
+URxvt.url-launcher:    /usr/bin/firefox
+URxvt.matcher.button:  1
