@@ -5,5 +5,5 @@ install.yml contains a (very) simplified (and frankly quite awful) Ansible yaml 
 Dotfiles is expected to be located at home folder.
 
 ```bash
-ansible-playbook --ask-sudo-pass ~/dotfiles/install.yml
+ansible-playbook --ask-become-pass ~/dotfiles/install.yml
 ```
