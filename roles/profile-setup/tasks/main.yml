@@ -1,6 +1,7 @@
 ---
 - name: import tasks
-  import_tasks:
+  tasks:
+    import_tasks:
     - packages.yml
     - bash-config.yml
     - directories.yml
