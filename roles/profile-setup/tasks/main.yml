@@ -42,13 +42,12 @@
     - { path: '~/.config/i3' }
     - { path: '~/.config/i3status' }
     - { path: '~/.config/bash'}
-- name: Link files
-  file:
+- name: copy files
+  copy:
     src: '{{ item.src }}'
     dest: '{{ item.dest }}'
     owner: '{{ ansible_user_id }}'
     group: '{{ ansible_user_id }}'
-    state: link
     backup: yes
   loop:
     - { src: 'gitconfig', dest: '~/.gitconfig' }
