@@ -1,9 +1,9 @@
 ---
 - name: import tasks
   tasks:
-    import_tasks:
-    - packages.yml
-    - bash-config.yml
-    - directories.yml
-    - copy-files.yml
+    -  import_tasks:
+        - packages.yml
+        - bash-config.yml
+        - directories.yml
+        - copy-files.yml
 ...
