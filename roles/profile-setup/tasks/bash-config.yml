@@ -1,7 +1,0 @@
-- name: Source config and aliases
-  lineinfile:
-    path: '{{ item.path }}'
-    line: '{{ item.line }}'
-  loop:
-    - { path: '~/.bashrc', line: 'source ~/dotfiles/bash_alias' }
-    - { path: '~/.bashrc', line: 'source ~/dotfiles/bash_config' }
