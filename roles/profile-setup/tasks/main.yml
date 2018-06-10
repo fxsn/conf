@@ -1,0 +1,61 @@
+---
+- name: Install packages
+  become: yes
+  package:
+    name: '{{ item }}'
+    state: installed
+  loop:
+    - libselinux-python
+    - git
+    - rsync
+    - vim
+    - firefox
+    - i3
+    - i3status
+    - feh
+    - dmenu
+    - xbacklight
+    - i3lock
+    - py3status
+    - htop
+    - ranger
+    - compton
+    - fontawesome-fonts
+    - xclip
+    - pavucontrol
+    - xautolock
+    - scrot
+- name: Source config and aliases
+  lineinfile:
+    path: '{{ item.path }}'
+    line: '{{ item.line }}'
+  loop:
+    - { path: '~/.bashrc', line: 'source ~/.config/bash/alias' }
+    - { path: '~/.bashrc', line: 'source ~/.config/bash/profile' }
+- name: Create directories
+  file:
+    path: '{{ item.path }}'
+    state: directory
+    mode: 0755
+  loop:
+    - { path: '~/.config' }
+    - { path: '~/.config/i3' }
+    - { path: '~/.config/i3status' }
+    - { path: '~/.config/bash'}
+- name: copy files
+  copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    owner: '{{ ansible_user_id }}'
+    group: '{{ ansible_user_id }}'
+    backup: yes
+  loop:
+    - { src: 'gitconfig', dest: '~/.gitconfig' }
+    - { src: 'vimrc', dest: '~/.vimrc' }
+    - { src: 'Xresources', dest: '~/.Xresources' }
+    - { src: 'config/compton.conf', dest: '~/.config/compton.conf' }
+    - { src: 'config/i3/config', dest: '~/.config/i3/config' }
+    - { src: 'config/i3status/config', dest: '~/.config/i3status/config' }
+    - { src: 'config/bash/alias', dest: '~/.config/bash/alias' }
+    - { src: 'config/bash/profile', dest: '~/.config/bash/profile' }
+...
