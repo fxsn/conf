@@ -28,6 +28,7 @@
     - pavucontrol
     - xautolock
     - scrot
+    - nmap
 - name: Source config and aliases
   lineinfile:
     path: '{{ item.path }}'
