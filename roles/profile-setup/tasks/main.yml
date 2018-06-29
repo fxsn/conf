@@ -29,6 +29,7 @@
     - xautolock
     - scrot
     - nmap
+    - zathura-plugins-all
 - name: Source config and aliases
   lineinfile:
     path: '{{ item.path }}'
