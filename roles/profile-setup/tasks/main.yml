@@ -3,8 +3,6 @@
   become: yes
   package:
     name: '{{ item }}'
-    state: installed
-  loop:
     - libselinux-python
     - git
     - rsync
@@ -30,6 +28,7 @@
     - scrot
     - nmap
     - zathura-plugins-all
+    state: installed
 - name: Source config and aliases
   lineinfile:
     path: '{{ item.path }}'
