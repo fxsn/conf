@@ -2,7 +2,7 @@
 - name: Install packages
   become: yes
   package:
-    name: '{{ item }}'
+    name:
     - libselinux-python
     - git
     - rsync
